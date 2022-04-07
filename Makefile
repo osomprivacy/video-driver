@@ -4,6 +4,7 @@ KBUILD_OPTIONS+= VIDEO_ROOT=$(KERNEL_SRC)/$(M)
 KBUILD_EXTRA_SYMBOLS := $(M)/../mmrm/Module.symvers
 
 all:
+	$(shell cp -r $(shell pwd)/include/uapi/vidc $(KERNEL_SRC)/include/uapi/)
 	$(MAKE) -C $(KERNEL_SRC) M=$(M) modules $(KBUILD_OPTIONS) $(KBUILD_EXTRA_SYMBOLS)
 
 modules_install:
